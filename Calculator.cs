@@ -4,42 +4,37 @@ public static class Calculator
 {
     public static double? Calculate(int first, int second, string operation)
     {
-         switch (operation)
+         switch (op)
         {
             case "+":
-                Console.WriteLine($"Result: " Add(num1, num2));
-                break;
-                
-            case "-" :
-                Console.WriteLine($"Result: " Subtract(num1, num2));
-                break;
-                
-            case "*" ;
-                Console.WriteLine($"Result: " Multiply(num1, num2));
-                break;
-                
-            case "/" ;
-                if (num != 2)
+                return a + b;
+
+            case "-":
+                return a - b;
+
+            case "*":
+                return a * b;
+
+            case "/":
+                if (b == 0)
                 {
-                    Console.WriteLine($"Result: {Divide (num1, num2)}");
+                    Console.WriteLine("Cannot divide by zero");
+                    return null;
                 }
-                break;
-                
+                return Math.Round((double)a / b, 2);
+
             case "%":
-                  if (num2 != 0)
-                    {
-                        Console.WriteLine($"Result: {Modulo(num1, num2)}");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Error: Cannot perform modulo by zero!");
-                    }
-                break;
-            
-            case "=" :
-                Console.WriteLine()
-        }
-        
+                if (b == 0)
+                {
+                    Console.WriteLine("Cannot modulo by zero");
+                    return null;
+                }
+                return a % b;
+
+            case "=":
+                return null;
+
+             default:
 
         return null;
     }
