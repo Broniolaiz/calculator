@@ -5,29 +5,49 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        while(operation) {
-            
-            Console.WriteLine("Enter the first number: ");
-            int num1 = Console.ReadLine();
-            Console.WriteLine("Enter the second number: ");
-            int num2 = Console.ReadLine();
-            Console.WriteLine("+,-,*,/,% :=");
-            operation = Console.ReadLine();
-        }
-            
-            Console.WriteLine("Incorrect Operation used, please try again");
-            
-            Console.WriteLine("Choose an operation");
-            Console.WriteLine("Addition (+)");
-            Console.WriteLine("Subtraction (-)");
-            Console.WriteLine("Multiplication (*)");
-            Console.WriteLine("Division (/)");
-            Console.WriteLine("Modulo (%)");
-            Console.WriteLine("Exit(=)");
-            
-            string operation Console.ReadLine();
-            
-            
+        bool running = true;
+
+        while (running)
+        {
+            Console.Write("Enter first number: ");
+            int num1 = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter second number: ");
+            int num2 = int.Parse(Console.ReadLine());
+
+            string operation;
+
+            // Ask for operation until valid or exit
+            while (true)
+            {
+                Console.Write("Choose operation (+,-,*,/,%,=): ");
+                operation = Console.ReadLine();
+
+                if (operation == "+" || operation == "-" || operation == "*" ||
+                    operation == "/" || operation == "%" || operation == "=")
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect Operation Used, please try again");
+                }
+            }
+
+            object result = Calculator(num1, num2, operation);
+
+            if (operation == "=")
+            {
+                Console.WriteLine("Program terminated.");
+                running = false;
+            }
+            else if (result != null)
+            {
+                Console.WriteLine("Result: " + result);
+            }
+
+            Console.WriteLine();
+    
         }
     }
     
