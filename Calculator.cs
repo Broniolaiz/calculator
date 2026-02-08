@@ -4,38 +4,38 @@ public static class Calculator
 {
     public static double? Calculate(int first, int second, string operation)
     {
-         switch (op)
+        switch (operation)
         {
             case "+":
-                return a + b;
+                return first + second;
 
             case "-":
-                return a - b;
+                return first - second;
 
             case "*":
-                return a * b;
+                return first * second;
 
             case "/":
-                if (b == 0)
+                if (second == 0)
                 {
                     Console.WriteLine("Cannot divide by zero");
                     return null;
                 }
-                return Math.Round((double)a / b, 2);
+                return (double)first / second;
 
             case "%":
-                if (b == 0)
+                if (second == 0)
                 {
                     Console.WriteLine("Cannot modulo by zero");
                     return null;
                 }
-                return a % b;
+                return first % second;
 
             case "=":
                 return null;
 
-             default:
-
+            default:
+        
         return null;
     }
 }
